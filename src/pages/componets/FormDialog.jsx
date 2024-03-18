@@ -1,4 +1,6 @@
 import {
+  Alert,
+  AlertTitle,
   Button,
   DialogActions,
   DialogContent,
@@ -29,6 +31,7 @@ const FormDialog = (props) => {
     id: 0,
   });
   const [errors, setErrors] = useState({});
+  const [successMessage, setSuccessMessage] = useState("");
 
   useEffect(() => {
     setFormInfo({
@@ -59,19 +62,29 @@ const FormDialog = (props) => {
       return;
     } else {
       if (clickType === ActionType.edit) {
+        setSuccessMessage("User data update successfully.");
         editUserInfo({ userData, formInfo, setUserData, userObj });
       } else {
+        setSuccessMessage("User data add successfully.");
         const formInfoWithId = { id: uniqueId, ...formInfo };
         setUserData([formInfoWithId, ...userData]);
-        setFormInfo({ username: "", email: "", role: "" });
       }
     }
-
-    handleClose();
+    setTimeout(() => {
+      setSuccessMessage("");
+      setFormInfo({ username: "", email: "", role: "" });
+      handleClose();
+    }, 2000);
   };
 
   return (
     <>
+      {successMessage && (
+        <Alert severity="success">
+          <AlertTitle>Success</AlertTitle>
+          {successMessage}
+        </Alert>
+      )}
       <DialogTitle>
         {clickType === ActionType.edit ? "Edit User" : "Add User"}
       </DialogTitle>
@@ -123,7 +136,7 @@ const FormDialog = (props) => {
       </DialogContent>
       <br />
       <DialogActions>
-        <Button type="submit" variant="contained" onClick={handleForm}>
+        <Button type="submit" variant="contained" onClick={() => handleForm()}>
           {clickType === ActionType.edit ? "Update" : "Add"}
         </Button>
         <Button onClick={handleClose}>Close</Button>

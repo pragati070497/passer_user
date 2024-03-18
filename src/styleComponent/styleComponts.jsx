@@ -2,8 +2,8 @@ import { Button, FormHelperText, Typography } from "@mui/material";
 import styled from "styled-components";
 
 export const StyledFormHelperText = styled(FormHelperText)`
-  color: red;
-  padding-bottom: 15px;
+  color: red !important;
+  padding-bottom: 15px !important;
 `;
 
 export const StyledAddBtnOnTable = styled.div`
@@ -19,6 +19,6 @@ export const StyledEditBtnOnTable = styled.div`
 
 export const StyledTypography = styled(Typography)`
   flex-grow: 1;
-  display: flex;
-  justify-content: center;
+  display: flex !important;
+  justify-content: center !important;
 `;
