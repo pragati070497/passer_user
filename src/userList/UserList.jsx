@@ -16,7 +16,7 @@ import UserDialog from "../pages/componets/UserDialog";
 import PaginationTable from "../pages/componets/Pagination";
 import { UserDataConst } from "../pages/constants/userConstants/UserListConst";
 import CompanyUserDetail from "../pages/componets/CompanyUserDetail";
-import { useLocation, useNavigate, useNavigation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import {
   StyledAddBtnOnTable,
   StyledEditBtnOnTable,
