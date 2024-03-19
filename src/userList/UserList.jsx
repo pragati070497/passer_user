@@ -121,7 +121,7 @@ const UserList = () => {
                             <Tooltip title="Edit" arrow>
                               <AllIcons.EditIcon
                                 color="info"
-                                sx={{ paddingRight: 1 }}
+                                sx={{ pr: 1 }}
                                 onClick={(e) => editUserDetail(e, row)}
                               />
                             </Tooltip>
